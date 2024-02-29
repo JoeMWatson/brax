@@ -1,4 +1,4 @@
-# Copyright 2023 The Brax Authors.
+# Copyright 2024 The Brax Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ from absl import app
 from absl import flags
 from absl import logging
 from brax import envs
-from brax.experimental.barkour_v0 import barkour_joystick
 from brax.io import html
 from brax.io import metrics
 from brax.io import model

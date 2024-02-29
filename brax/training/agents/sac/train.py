@@ -1,4 +1,4 @@
-# Copyright 2023 The Brax Authors.
+# Copyright 2024 The Brax Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ def _init_training_state(
   q_optimizer_state = q_optimizer.init(q_params)
 
   normalizer_params = running_statistics.init_state(
-      specs.Array((obs_size,), jnp.float32))
+      specs.Array((obs_size,), jnp.dtype('float32')))
 
   training_state = TrainingState(
       policy_optimizer_state=policy_optimizer_state,
@@ -401,7 +401,7 @@ def train(
         'training/walltime': training_walltime,
         **{f'training/{name}': value for name, value in metrics.items()}
     }
-    return training_state, env_state, buffer_state, metrics
+    return training_state, env_state, buffer_state, metrics  # pytype: disable=bad-return-type  # py311-upgrade
 
   global_key, local_key = jax.random.split(rng)
   local_key = jax.random.fold_in(local_key, process_id)

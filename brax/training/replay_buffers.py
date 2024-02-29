@@ -1,4 +1,4 @@
-# Copyright 2023 The Brax Authors.
+# Copyright 2024 The Brax Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -402,7 +402,7 @@ class PjitWrapper(ReplayBuffer[State, Sample]):
       return buffer_state, samples
 
     def size(buffer_state: State) -> int:
-      return jnp.sum(jax.vmap(self._buffer.size)(buffer_state))
+      return jnp.sum(jax.vmap(self._buffer.size)(buffer_state))  # pytype: disable=bad-return-type  # jnp-type
 
     partition_spec = jax.sharding.PartitionSpec((axis_names),)
     self._partitioned_init = pjit.pjit(init, out_shardings=partition_spec)

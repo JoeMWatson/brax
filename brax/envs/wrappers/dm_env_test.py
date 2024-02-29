@@ -1,4 +1,4 @@
-# Copyright 2023 The Brax Authors.
+# Copyright 2024 The Brax Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,12 +30,6 @@ class DmEnvTest(absltest.TestCase):
         env.action_spec().minimum, base_env.sys.actuator.ctrl_range[:, 0])
     np.testing.assert_array_equal(
         env.action_spec().maximum, base_env.sys.actuator.ctrl_range[:, 1])
-
-  def test_render(self):
-    base_env = envs.create('pusher')
-    env = dm_env.DmEnvWrapper(base_env)
-    env.reset()
-    env.render()
 
 
 if __name__ == '__main__':

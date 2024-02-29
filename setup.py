@@ -1,4 +1,4 @@
-# Copyright 2023 The Brax Authors.
+# Copyright 2024 The Brax Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ from setuptools import setup
 
 setup(
     name="brax",
-    version="0.9.2",
-    description=("A differentiable physics engine written in JAX."),
+    version="0.10.0",
+    description="A differentiable physics engine written in JAX.",
     author="Brax Authors",
     author_email="no-reply@google.com",
     long_description=open("README.md").read(),
@@ -53,8 +53,10 @@ setup(
         "jinja2",
         "ml_collections",
         "mujoco",
+        "mujoco-mjx",
         "numpy",
         "optax",
+        # TODO: remove pytinyrenderer after dropping legacy v1 code
         "Pillow",
         "pytinyrenderer",
         "scipy",
